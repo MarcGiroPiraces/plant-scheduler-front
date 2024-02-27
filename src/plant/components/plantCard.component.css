@@ -1,15 +1,27 @@
+h2 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 .list-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: baseline;
   padding: 10px;
-  margin: 10px;
-  border: 3px solid #ccc;
-  border-radius: 5px;
+  border: 3px solid;
+  border-radius: 15px;
   width: 300px;
   text-align: left;
-  background-color: #f8f8f8;
+  background-color: #ffefd5;
+}
+
+.border-pink {
+  border-color: #ff69b4;
+}
+
+.border-green {
+  border-color: #90ee90;
 }
 
 .link-list {
@@ -31,9 +43,17 @@
 }
 
 p {
-  margin-bottom: 0px;
+  margin-bottom: 5px;
+  margin-top: 0px;
 }
 
 ul {
+  list-style-type: none;
   margin-top: 0px;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+.spot {
+  margin-bottom: 10px;
 }

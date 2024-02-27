@@ -5,12 +5,24 @@ import { getFormattedDateUE } from "../helperFunctions/formattedDateUE";
 import "./plantCard.component.css";
 
 export const PlantCard = ({ plant }: { plant: Plant }) => {
-  const { lastWateringComponent, averageWateringDate, nextWateringDate } =
-    usePlantCard(plant);
+  const {
+    lastWateringComponent,
+    averageWateringDate,
+    nextWateringDate,
+    isNextWateringDateThisWeek,
+  } = usePlantCard(plant);
 
   return (
-    <li key={plant.id} className="list-item">
+    <li
+      key={plant.id}
+      className={`list-item ${
+        isNextWateringDateThisWeek ? "border-pink" : "border-green"
+      }`}
+    >
       <h2>{plant.name}</h2>
+      <p className="spot">
+        {plant.spot.room} - {plant.spot.place}
+      </p>
       <p>{plant.description}</p>
       <div className="waterings">
         <ul>

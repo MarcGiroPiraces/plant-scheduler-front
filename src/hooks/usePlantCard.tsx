@@ -18,6 +18,13 @@ export const usePlantCard = (plant: Plant) => {
       )
     : null;
 
+  const closeDate = new Date();
+  closeDate.setDate(closeDate.getDate() + 7);
+
+  const isNextWateringDateThisWeek = nextWateringDate
+    ? nextWateringDate < closeDate
+    : false;
+
   const lastWateringComponent = isPlantWithWaterings ? (
     <li key={lastWatering.id} className="date">
       {plant.waterings.length > 0 && (
@@ -26,5 +33,10 @@ export const usePlantCard = (plant: Plant) => {
     </li>
   ) : null;
 
-  return { lastWateringComponent, averageWateringDate, nextWateringDate };
+  return {
+    lastWateringComponent,
+    averageWateringDate,
+    nextWateringDate,
+    isNextWateringDateThisWeek,
+  };
 };
