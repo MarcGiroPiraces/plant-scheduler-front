@@ -7,20 +7,14 @@ export const addTransplanting = async (
   soilChange: boolean,
   soilMix: string,
   date: string
-) => {
-  const plants = await axios.post(`${config.PATH}transplanting`, {
+): Promise<number> => {
+  const newTransplantingId = (await axios.post(`${config.PATH}transplanting`, {
     date: date ? new Date(date) : new Date(),
     potUpsize,
     soilChange,
     soilMix,
     plantId,
-  });
+  })) as number;
 
-  return {
-    ...plants.data,
-    potUpsize,
-    soilChange,
-    soilMix,
-    plantId,
-  };
+  return newTransplantingId;
 };
