@@ -8,16 +8,18 @@ import { PlantList } from "./plant/components/PlantList.component";
 
 function App() {
   const { isUserLoggedIn } = useGetIsUserLoggedIn();
+  console.log("isUserLoggedIn", isUserLoggedIn);
   if (isUserLoggedIn === null) {
     return LoginUserPage();
   }
+
   return (
     <>
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route
           path="/login"
-          element={isUserLoggedIn ? <PlantList /> : <LoginUserPage />}
+          element={isUserLoggedIn ? <Navigate to="/home" /> : <LoginUserPage />}
         />
         <Route path="/home" element={<PlantList />} />
         <Route
