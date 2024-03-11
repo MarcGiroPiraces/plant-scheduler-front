@@ -1,5 +1,5 @@
-import { Plant } from "../../plant/Plant.interface";
-import { Transplanting } from "../Transplanting.interface";
+import { Plant } from "../../plant/interfaces/Plant.interface";
+import { Transplanting } from "../interfaces/Transplanting.interface";
 
 export const getLatestTransplantingFromPlant = (
   plant: Plant

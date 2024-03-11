@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { usePlantCard } from "../../hooks/usePlantCard";
-import { Plant } from "../Plant.interface";
 import { getFormattedDateUE } from "../helperFunctions/formattedDateUE";
+import { Plant } from "../interfaces/Plant.interface";
 import "./plantCard.component.css";
 
 export const PlantCard = ({ plant }: { plant: Plant }) => {

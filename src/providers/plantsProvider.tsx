@@ -4,7 +4,7 @@ import React, {
   createContext,
   useState,
 } from "react";
-import { Plant } from "../plant/Plant.interface";
+import { Plant } from "../plant/interfaces/Plant.interface";
 
 interface PlantsContextProps {
   plantsData: Plant[];

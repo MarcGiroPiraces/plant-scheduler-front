@@ -1,4 +1,4 @@
-import { Plant } from "../plant/Plant.interface";
+import { Plant } from "../plant/interfaces/Plant.interface";
 import { User } from "../user/User.interface";
 
 export const roomOptions = {
