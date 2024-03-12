@@ -1,4 +1,4 @@
-import { useWateringForm } from "../../hooks/useWateringForm";
+import { useWateringForm } from "../../hooks/watering/useWateringForm";
 import { WateringFormFields } from "../../interfaces/watering/formFields";
 
 export interface WateringFormProps {

@@ -1,5 +1,5 @@
-import { addWatering } from "../api/watering/addWatering";
-import { WateringFormFields } from "../interfaces/watering/formFields";
+import { addWatering } from "../../api/watering/addWatering.api";
+import { WateringFormFields } from "../../interfaces/watering/formFields";
 
 export const useAddWateringPage = () => {
   const onSubmit = async (watering: WateringFormFields): Promise<void> => {

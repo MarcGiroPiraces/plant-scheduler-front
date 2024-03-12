@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import { PlantList } from "./components/plant/PlantList.component";
-import { useGetIsUserLoggedIn } from "./hooks/useGetIsUserLoggedIn";
+import { useGetIsUserLoggedIn } from "./hooks/user/useGetIsUserLoggedIn";
 import { AddPlantPage } from "./pages/AddPlant";
 import { AddTransplantingPage } from "./pages/AddTransplanting";
 import { AddWateringPage } from "./pages/AddWatering";

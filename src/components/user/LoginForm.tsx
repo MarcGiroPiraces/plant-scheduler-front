@@ -1,4 +1,4 @@
-import { useLoginForm } from "../../hooks/useLoginForm";
+import { useLoginForm } from "../../hooks/user/useLoginForm";
 import { LoginFormFields } from "../../interfaces/user/formFields";
 
 export interface LoginFormProps {

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { WateringForm } from "../components/watering/WateringForm";
-import { useAddWateringPage } from "../hooks/useAddWateringPage";
+import { useAddWateringPage } from "../hooks/watering/useAddWateringPage";
 
 export function AddWateringPage() {
   const { onSubmit } = useAddWateringPage();

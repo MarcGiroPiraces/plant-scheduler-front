@@ -2,19 +2,23 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { LoginFormProps } from "../components/user/LoginForm";
+import { PlantFormProps } from "../../components/plant/PlantForm";
 import {
-  LoginFormFields,
-  loginFormFieldsSchema,
-} from "../interfaces/user/formFields";
+  PlantFormFields,
+  plantFormFieldsSchema,
+} from "../../interfaces/plant/formFields";
 
-export const useLoginForm = ({ actionOnSubmit }: LoginFormProps) => {
+export const usePlantForm = ({ actionOnSubmit }: PlantFormProps) => {
   const navigate = useNavigate();
 
   const defaultValues = useMemo(
     () => ({
-      email: "loguimarc+3@gmail.com",
-      password: "1234",
+      name: "Monstera Deliciosa",
+      description:
+        "Regar en molt sec i fertilitzar cada mes i mig en estiu i primavera",
+      atHomeSince: new Date().toISOString().split("T")[0],
+      userId: 1,
+      spotId: 1,
     }),
     []
   );
@@ -25,9 +29,9 @@ export const useLoginForm = ({ actionOnSubmit }: LoginFormProps) => {
     setError,
     reset,
     formState: { errors },
-  } = useForm<LoginFormFields>({
+  } = useForm<PlantFormFields>({
     defaultValues: defaultValues,
-    resolver: zodResolver(loginFormFieldsSchema),
+    resolver: zodResolver(plantFormFieldsSchema),
   });
 
   useEffect(() => {
@@ -37,7 +41,7 @@ export const useLoginForm = ({ actionOnSubmit }: LoginFormProps) => {
   const onSubmit = handleSubmit(async (data) => {
     try {
       await actionOnSubmit(data);
-      navigate(`/home`);
+      navigate(`/`);
     } catch (error) {
       setError("root", { type: "manual", message: "Something went wrong" });
     }

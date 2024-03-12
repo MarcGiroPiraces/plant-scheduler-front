@@ -1,5 +1,5 @@
-import { useGetIsUserLoggedIn } from "../../hooks/useGetIsUserLoggedIn";
-import { useGetPlants } from "../../hooks/useGetPlants";
+import { useGetPlants } from "../../hooks/plant/useGetPlants";
+import { useGetIsUserLoggedIn } from "../../hooks/user/useGetIsUserLoggedIn";
 import { Plant } from "../../interfaces/plant/Plant.interface";
 import { PlantCard } from "./PlantCard.component";
 import "./plantList.component.css";

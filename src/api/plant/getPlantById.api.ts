@@ -4,5 +4,6 @@ import { Plant } from "../../interfaces/plant/Plant.interface";
 
 export const getPlantById = async (id: string): Promise<Plant> => {
   const plants = await axios.get(`${config.PATH}plant/${id}`);
+
   return plants.data;
 };

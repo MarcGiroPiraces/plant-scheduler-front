@@ -1,4 +1,4 @@
-import { useTransplantingForm } from "../../hooks/useTansplantingForm";
+import { useTransplantingForm } from "../../hooks/transplanting/useTransplantingForm";
 import { TransplantingFormFields } from "../../interfaces/transplanting/formFields";
 
 export interface TransplantingFormProps {

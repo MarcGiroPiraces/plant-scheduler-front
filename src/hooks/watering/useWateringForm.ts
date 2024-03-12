@@ -2,18 +2,20 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
-import { WateringFormProps } from "../components/watering/WateringForm";
+import { WateringFormProps } from "../../components/watering/WateringForm";
 import {
   WateringFormFields,
   wateringFormFieldsSchema,
-} from "../interfaces/watering/formFields";
-import { useGetPlantByIdFromPlantsList } from "./useGetPlantByIdFromPlantsList";
-import { useGetPlants } from "./useGetPlants";
+} from "../../interfaces/watering/formFields";
+import { useGetPlantByIdFromPlantsList } from "../plant/useGetPlantByIdFromPlantsList";
+import { useGetPlants } from "../plant/useGetPlants";
+import { useGetIsUserLoggedIn } from "../user/useGetIsUserLoggedIn";
 
 export const useWateringForm = ({ actionOnSubmit }: WateringFormProps) => {
   const { plantId } = useParams();
+  const { isUserLoggedIn } = useGetIsUserLoggedIn();
   const plantIdToNumber = +plantId!;
-  const { plantsData } = useGetPlants();
+  const { plantsData } = useGetPlants(isUserLoggedIn!.id as number);
 
   const navigate = useNavigate();
 

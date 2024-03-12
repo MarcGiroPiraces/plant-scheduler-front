@@ -2,21 +2,23 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
-import { TransplantingFormProps } from "../components/transplanting/TransplantingForm";
-import { getLatestTransplantingFromPlant } from "../helperFunctions/transplanting/getLatestTransplantingFromPlant";
+import { TransplantingFormProps } from "../../components/transplanting/TransplantingForm";
+import { getLatestTransplantingFromPlant } from "../../helperFunctions/transplanting/getLatestTransplantingFromPlant";
 import {
   TransplantingFormFields,
   transplantingFormFieldsSchema,
-} from "../interfaces/transplanting/formFields";
-import { useGetPlantByIdFromPlantsList } from "./useGetPlantByIdFromPlantsList";
-import { useGetPlants } from "./useGetPlants";
+} from "../../interfaces/transplanting/formFields";
+import { useGetPlantByIdFromPlantsList } from "../plant/useGetPlantByIdFromPlantsList";
+import { useGetPlants } from "../plant/useGetPlants";
+import { useGetIsUserLoggedIn } from "../user/useGetIsUserLoggedIn";
 
 export const useTransplantingForm = ({
   actionOnSubmit,
 }: TransplantingFormProps) => {
   const { plantId } = useParams();
+  const { isUserLoggedIn } = useGetIsUserLoggedIn();
   const plantIdToNumber = +plantId!;
-  const { plantsData } = useGetPlants();
+  const { plantsData } = useGetPlants(isUserLoggedIn!.id as number);
 
   const navigate = useNavigate();
 

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { TransplantingForm } from "../components/transplanting/TransplantingForm";
-import { useAddTransplantingPage } from "../hooks/useAddTransplantingPage";
+import { useAddTransplantingPage } from "../hooks/transplanting/useAddTransplantingPage";
 
 export function AddTransplantingPage() {
   const { onSubmit } = useAddTransplantingPage();

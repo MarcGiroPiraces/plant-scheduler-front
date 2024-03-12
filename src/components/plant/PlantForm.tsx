@@ -1,4 +1,4 @@
-import { usePlantForm } from "../../hooks/usePlantForm";
+import { usePlantForm } from "../../hooks/plant/usePlantForm";
 import { PlantFormFields } from "../../interfaces/plant/formFields";
 
 export interface PlantFormProps {

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { IsUserLoggedInContext } from "../providers/isUserLoggedInProvider";
+import { IsUserLoggedInContext } from "../../providers/isUserLoggedInProvider";
 
 export const useIsUserLoggedInContext = () => {
   const context = useContext(IsUserLoggedInContext);

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { getFormattedDateUE } from "../../helperFunctions/formattedDateUE";
-import { usePlantCard } from "../../hooks/usePlantCard";
+import { usePlantCard } from "../../hooks/plant/usePlantCard";
 import { Plant } from "../../interfaces/plant/Plant.interface";
 import "./plantCard.component.css";
 

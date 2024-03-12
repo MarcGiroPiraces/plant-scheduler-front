@@ -1,5 +1,5 @@
-import { addPlant } from "../api/plant/addPlant";
-import { PlantFormFields } from "../interfaces/plant/formFields";
+import { addPlant } from "../../api/plant/addPlant.api";
+import { PlantFormFields } from "../../interfaces/plant/formFields";
 
 export const useAddPlantPage = () => {
   const onSubmit = async (plant: PlantFormFields): Promise<void> => {
