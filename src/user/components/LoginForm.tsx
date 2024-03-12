@@ -13,11 +13,11 @@ export function LoginForm({ actionOnSubmit }: LoginFormProps) {
   return (
     <form onSubmit={onSubmit}>
       <div>
-        <p>email</p>
-        <input {...register("email", { required: true })} />
+        <label htmlFor="email">email</label>
+        <input id="email" {...register("email", { required: true })} />
         {errors.email && <span>Has d'introduir l'email.</span>}
 
-        <p>password</p>
+        <label>password</label>
         <input {...register("password", { required: true })} />
         {errors.password && <span>Has d'introduir la password.</span>}
       </div>

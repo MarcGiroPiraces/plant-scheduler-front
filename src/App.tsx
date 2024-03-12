@@ -1,4 +1,5 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import { useGetIsUserLoggedIn } from "./hooks/useGetIsUserLoggedIn";
 import { AddPlantPage } from "./pages/AddPlant";
 import { AddTransplantingPage } from "./pages/AddTransplanting";
@@ -8,10 +9,13 @@ import { PlantList } from "./plant/components/PlantList.component";
 
 function App() {
   const { isUserLoggedIn } = useGetIsUserLoggedIn();
-  console.log("isUserLoggedIn", isUserLoggedIn);
-  if (isUserLoggedIn === null) {
-    return LoginUserPage();
-  }
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isUserLoggedIn) {
+      navigate("/login");
+    }
+  }, [isUserLoggedIn, navigate]);
 
   return (
     <>

@@ -5,7 +5,7 @@ import { useIsUserLoggedInContext } from "./useIsUserLoggedInContext";
 
 export const useGetIsUserLoggedIn = () => {
   const { isUserLoggedIn, setIsUserLoggedInData } = useIsUserLoggedInContext();
-  console.log("isUserLoggedIn", isUserLoggedIn);
+  // console.log("isUserLoggedIn", isUserLoggedIn);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
