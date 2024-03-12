@@ -1,5 +1,5 @@
+import { LoginForm } from "../components/user/LoginForm";
 import { useLoginPage } from "../hooks/useLoginPage";
-import { LoginForm } from "../user/components/LoginForm";
 
 export function LoginUserPage() {
   const { onSubmit } = useLoginPage();

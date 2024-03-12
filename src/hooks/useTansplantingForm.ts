@@ -2,12 +2,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
-import { TransplantingFormProps } from "../tranplanting/components/TransplantingForm";
-import { getLatestTransplantingFromPlant } from "../tranplanting/helperFunctions.ts/getLatestTransplantingFromPlant";
+import { TransplantingFormProps } from "../components/transplanting/TransplantingForm";
+import { getLatestTransplantingFromPlant } from "../helperFunctions/transplanting/getLatestTransplantingFromPlant";
 import {
   TransplantingFormFields,
   transplantingFormFieldsSchema,
-} from "../tranplanting/interfaces/formFields";
+} from "../interfaces/transplanting/formFields";
 import { useGetPlantByIdFromPlantsList } from "./useGetPlantByIdFromPlantsList";
 import { useGetPlants } from "./useGetPlants";
 

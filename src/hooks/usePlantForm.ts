@@ -2,11 +2,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { PlantFormProps } from "../plant/components/PlantForm";
+import { PlantFormProps } from "../components/plant/PlantForm";
 import {
   PlantFormFields,
   plantFormFieldsSchema,
-} from "../plant/interfaces/formFields";
+} from "../interfaces/plant/formFields";
 
 export const usePlantForm = ({ actionOnSubmit }: PlantFormProps) => {
   const navigate = useNavigate();

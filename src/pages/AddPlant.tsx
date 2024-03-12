@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
+import { PlantForm } from "../components/plant/PlantForm";
 import { useAddPlantPage } from "../hooks/useAddPlantPage";
-import { PlantForm } from "../plant/components/PlantForm";
 
 export function AddPlantPage() {
   const { onSubmit } = useAddPlantPage();

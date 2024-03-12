@@ -2,11 +2,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { LoginFormProps } from "../user/components/LoginForm";
+import { LoginFormProps } from "../components/user/LoginForm";
 import {
   LoginFormFields,
   loginFormFieldsSchema,
-} from "../user/interfaces/formFields";
+} from "../interfaces/user/formFields";
 
 export const useLoginForm = ({ actionOnSubmit }: LoginFormProps) => {
   const navigate = useNavigate();

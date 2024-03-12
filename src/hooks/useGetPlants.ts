@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { getPlants } from "../plant/apiCalls/getPlants";
-import { Plant } from "../plant/interfaces/Plant.interface";
+import { getPlants } from "../api/plant/getPlants";
+import { Plant } from "../interfaces/plant/Plant.interface";
 import { usePlantsContext } from "./usePlantsContext";
 
 export const useGetPlants = (userId: number) => {

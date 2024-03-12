@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import { PlantList } from "./components/plant/PlantList.component";
 import { useGetIsUserLoggedIn } from "./hooks/useGetIsUserLoggedIn";
 import { AddPlantPage } from "./pages/AddPlant";
 import { AddTransplantingPage } from "./pages/AddTransplanting";
 import { AddWateringPage } from "./pages/AddWatering";
 import { LoginUserPage } from "./pages/LoginUser";
-import { PlantList } from "./plant/components/PlantList.component";
 
 function App() {
   const { isUserLoggedIn } = useGetIsUserLoggedIn();

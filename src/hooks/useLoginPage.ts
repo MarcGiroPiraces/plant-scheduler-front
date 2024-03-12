@@ -1,5 +1,5 @@
-import { loginUser } from "../user/apiCalls/loginUser";
-import { LoginFormFields } from "../user/interfaces/formFields";
+import { loginUser } from "../api/user/loginUser";
+import { LoginFormFields } from "../interfaces/user/formFields";
 
 export const useLoginPage = () => {
   const onSubmit = async (login: LoginFormFields) => {

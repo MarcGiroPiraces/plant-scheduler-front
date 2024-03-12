@@ -1,5 +1,5 @@
-import { addTransplanting } from "../tranplanting/apiCalls/addTransplanting";
-import { TransplantingFormFields } from "../tranplanting/interfaces/formFields";
+import { addTransplanting } from "../api/transplanting/addTransplanting";
+import { TransplantingFormFields } from "../interfaces/transplanting/formFields";
 
 export const useAddTransplantingPage = () => {
   const onSubmit = async (

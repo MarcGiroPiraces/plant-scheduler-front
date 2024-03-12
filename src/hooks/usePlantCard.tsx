@@ -1,7 +1,7 @@
-import { getFormattedDateUE } from "../plant/helperFunctions/formattedDateUE";
-import { getAverageWateringDate } from "../plant/helperFunctions/getAverageWateringDate";
-import { getNextWateringDate } from "../plant/helperFunctions/getNextWateringDate";
-import { Plant } from "../plant/interfaces/Plant.interface";
+import { getFormattedDateUE } from "../helperFunctions/formattedDateUE";
+import { getAverageWateringDate } from "../helperFunctions/watering/getAverageWateringDate";
+import { getNextWateringDate } from "../helperFunctions/watering/getNextWateringDate";
+import { Plant } from "../interfaces/plant/Plant.interface";
 
 export const usePlantCard = (plant: Plant) => {
   const isPlantWithWaterings = plant.waterings.length > 0;

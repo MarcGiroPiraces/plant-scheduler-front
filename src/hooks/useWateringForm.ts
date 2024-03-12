@@ -2,11 +2,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
-import { WateringFormProps } from "../watering/components/WateringForm";
+import { WateringFormProps } from "../components/watering/WateringForm";
 import {
   WateringFormFields,
   wateringFormFieldsSchema,
-} from "../watering/interfaces/formFields";
+} from "../interfaces/watering/formFields";
 import { useGetPlantByIdFromPlantsList } from "./useGetPlantByIdFromPlantsList";
 import { useGetPlants } from "./useGetPlants";
 
