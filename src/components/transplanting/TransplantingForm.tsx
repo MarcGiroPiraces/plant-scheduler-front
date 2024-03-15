@@ -1,9 +1,5 @@
-import { useTransplantingForm } from "../../hooks/transplanting/useTransplantingForm";
-import { TransplantingFormFields } from "../../interfaces/transplanting/formFields";
-
-export interface TransplantingFormProps {
-  actionOnSubmit: (transplanting: TransplantingFormFields) => Promise<void>;
-}
+import { useTransplantingForm } from "../../hooks/spot/useTransplantingForm";
+import { TransplantingFormProps } from "../../interfaces/transplanting/TransplantingFormProps";
 
 export function TransplantingForm({ actionOnSubmit }: TransplantingFormProps) {
   const { plant, register, errors, onSubmit } = useTransplantingForm({

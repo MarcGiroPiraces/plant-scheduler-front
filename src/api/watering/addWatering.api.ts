@@ -6,11 +6,18 @@ export const addWatering = async (
   fertilizer: boolean,
   date: string
 ) => {
-  const plants = await axios.post(`${config.PATH}watering`, {
-    date: new Date(date),
-    fertilizer,
-    plantId,
-  });
+  const authorization = localStorage.getItem("token");
+  const plants = await axios.post(
+    `${config.PATH}watering`,
+    {
+      date: new Date(date),
+      fertilizer,
+      plantId,
+    },
+    {
+      headers: { Authorization: `Bearer ${authorization}` },
+    }
+  );
 
   return {
     ...plants.data,

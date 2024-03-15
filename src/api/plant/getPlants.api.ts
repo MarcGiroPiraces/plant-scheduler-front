@@ -2,17 +2,16 @@ import axios from "axios";
 import { config } from "../../config";
 import { Plant } from "../../interfaces/plant/Plant.interface";
 
-export const getPlants = async (path: string): Promise<Plant[] | undefined> => {
+export const getPlants = async (path: string): Promise<Plant[]> => {
   const authorization = localStorage.getItem("token");
   try {
-    const plants = await axios.get(`${config.PATH}${path}`, {
+    const { data } = (await axios.get(`${config.PATH}${path}`, {
       headers: { Authorization: `Bearer ${authorization}` },
-    });
+    })) as { data: Plant[] };
 
-    return plants.data;
+    return data;
   } catch (error) {
     console.error(error);
+    throw new Error("Error while fetching plants");
   }
-
-  return undefined;
 };

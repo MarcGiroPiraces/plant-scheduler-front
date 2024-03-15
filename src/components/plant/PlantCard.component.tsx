@@ -4,7 +4,7 @@ import { usePlantCard } from "../../hooks/plant/usePlantCard";
 import { Plant } from "../../interfaces/plant/Plant.interface";
 import "./plantCard.component.css";
 
-export const PlantCard = ({ plant }: { plant: Plant }) => {
+export function PlantCard({ plant }: { plant: Plant }) {
   const {
     lastWateringComponent,
     averageWateringDate,
@@ -49,4 +49,4 @@ export const PlantCard = ({ plant }: { plant: Plant }) => {
       </div>
     </li>
   );
-};
+}

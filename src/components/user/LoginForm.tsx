@@ -1,9 +1,5 @@
 import { useLoginForm } from "../../hooks/user/useLoginForm";
-import { LoginFormFields } from "../../interfaces/user/formFields";
-
-export interface LoginFormProps {
-  actionOnSubmit: (login: LoginFormFields) => Promise<void>;
-}
+import { LoginFormProps } from "../../interfaces/user/LoginFormProps";
 
 export function LoginForm({ actionOnSubmit }: LoginFormProps) {
   const { register, errors, onSubmit } = useLoginForm({

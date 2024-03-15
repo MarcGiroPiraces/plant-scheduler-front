@@ -3,15 +3,12 @@ import { getPlants } from "../../api/plant/getPlants.api";
 import { Plant } from "../../interfaces/plant/Plant.interface";
 import { usePlantsContext } from "./usePlantsContext";
 
-export const useGetPlants = (userId: number) => {
+export const useGetPlants = () => {
   const { plantsData, setPlantsData } = usePlantsContext();
 
   useEffect(() => {
-    if (!userId) return;
-    getPlants(`plant/${userId}`).then((data: Plant[] | undefined) =>
-      setPlantsData(data as Plant[])
-    );
-  }, [setPlantsData, userId]);
+    getPlants(`plant`).then((data: Plant[]) => setPlantsData(data as Plant[]));
+  }, [setPlantsData]);
 
   return { plantsData };
 };

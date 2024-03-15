@@ -7,12 +7,19 @@ export const addPlant = async (
   atHomeSince: string,
   spotId: number
 ): Promise<number> => {
-  const newPlantId = (await axios.post(`${config.PATH}plant`, {
-    name,
-    description,
-    atHomeSince,
-    spotId,
-  })) as number;
+  const authorization = localStorage.getItem("token");
+  const newPlantId = (await axios.post(
+    `${config.PATH}plant`,
+    {
+      name,
+      description,
+      atHomeSince,
+      spotId,
+    },
+    {
+      headers: { Authorization: `Bearer ${authorization}` },
+    }
+  )) as number;
 
   return newPlantId;
 };

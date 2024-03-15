@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { PlantForm } from "../components/plant/PlantForm";
 import { useAddPlantPage } from "../hooks/plant/useAddPlantPage";
 
@@ -7,7 +6,6 @@ export function AddPlantPage() {
 
   return (
     <>
-      <Link to={`/`}>Tornar a la llista de plantes</Link>
       <h1>Afegir planta</h1>
       <PlantForm actionOnSubmit={onSubmit} />
     </>
