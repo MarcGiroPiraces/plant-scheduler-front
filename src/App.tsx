@@ -14,6 +14,7 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // if (isUserLoggedIn === null) return;
     if (!isUserLoggedIn) {
       navigate("/login");
     }

@@ -11,6 +11,8 @@ export function PlantCard({ plant }: { plant: Plant }) {
     nextWateringDate,
     isNextWateringDateThisWeek,
   } = usePlantCard(plant);
+  console.log(plant);
+  console.log(plant.spot.room);
 
   return (
     <li

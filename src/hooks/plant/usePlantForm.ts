@@ -7,9 +7,14 @@ import {
   PlantFormFields,
   plantFormFieldsSchema,
 } from "../../interfaces/plant/formFields";
+import { useGetSpots } from "../spot/useGetSpots";
 
 export const usePlantForm = ({ actionOnSubmit }: PlantFormProps) => {
   const navigate = useNavigate();
+  const { spotsData } = useGetSpots();
+  const sortedSpotsData = useMemo(() => {
+    return spotsData.sort((a, b) => a.room.localeCompare(b.room));
+  }, [spotsData]);
 
   const defaultValues = useMemo(
     () => ({
@@ -28,11 +33,14 @@ export const usePlantForm = ({ actionOnSubmit }: PlantFormProps) => {
     handleSubmit,
     setError,
     reset,
+    control,
+    watch,
     formState: { errors },
   } = useForm<PlantFormFields>({
     defaultValues: defaultValues,
     resolver: zodResolver(plantFormFieldsSchema),
   });
+  console.log(watch("spotId"));
   useEffect(() => {
     reset(defaultValues);
   }, [defaultValues, reset]);
@@ -51,6 +59,8 @@ export const usePlantForm = ({ actionOnSubmit }: PlantFormProps) => {
     register,
     onSubmit,
     setError,
+    control,
     errors,
+    spotsData: sortedSpotsData,
   };
 };

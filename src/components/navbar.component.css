@@ -1,13 +1,14 @@
-nav {
+.navbar {
   border-style: dashed;
   border-width: 5px;
   border-color: aqua;
   padding: 10px;
-  width: 500px;
+  width: 400px;
 }
 
-ul {
+.linksContainer {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   list-style-type: none;
   margin: 0;

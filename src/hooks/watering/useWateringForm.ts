@@ -9,13 +9,11 @@ import {
 } from "../../interfaces/watering/formFields";
 import { useGetPlantByIdFromPlantsList } from "../plant/useGetPlantByIdFromPlantsList";
 import { useGetPlants } from "../plant/useGetPlants";
-import { useGetIsUserLoggedIn } from "../user/useGetIsUserLoggedIn";
 
 export const useWateringForm = ({ actionOnSubmit }: WateringFormProps) => {
   const { plantId } = useParams();
-  const { isUserLoggedIn } = useGetIsUserLoggedIn();
   const plantIdToNumber = +plantId!;
-  const { plantsData } = useGetPlants(isUserLoggedIn!.id as number);
+  const { plantsData } = useGetPlants();
 
   const navigate = useNavigate();
 

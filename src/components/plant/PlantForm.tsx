@@ -1,9 +1,10 @@
+import { Controller } from "react-hook-form";
 import { usePlantForm } from "../../hooks/plant/usePlantForm";
 import { PlantFormProps } from "../../interfaces/plant/PlantFormProps";
 import "./PlantForm.css";
 
 export function PlantForm({ actionOnSubmit }: PlantFormProps) {
-  const { register, errors, onSubmit } = usePlantForm({
+  const { register, errors, control, onSubmit, spotsData } = usePlantForm({
     actionOnSubmit,
   });
 
@@ -32,9 +33,22 @@ export function PlantForm({ actionOnSubmit }: PlantFormProps) {
       </div>
 
       <div>
-        <label>A quin lloc la tens</label>
-        <input type="number" {...register("spotId", { required: true })} />
-        {errors.spotId && <span>Has d'introduir el lloc de la planta.</span>}
+        <label htmlFor="dropdown">A quin lloc la tens</label>
+        <Controller
+          name="spotId"
+          control={control}
+          defaultValue={1}
+          render={({ field }) => (
+            <select {...field}>
+              {spotsData.map((spot) => (
+                <option key={spot.id} value={spot.id}>
+                  {spot.room} - {spot.place}
+                </option>
+              ))}
+            </select>
+          )}
+        ></Controller>
+        {errors.spotId && <span>{errors.spotId.message}</span>}
       </div>
 
       <div>

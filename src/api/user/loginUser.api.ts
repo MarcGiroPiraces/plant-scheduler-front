@@ -9,7 +9,7 @@ export const loginUser = async (
   email: string,
   password: string
 ): Promise<accessToken> => {
-  const { data } = await axios.post(`${config.PATH}/user/login`, {
+  const { data } = await axios.post(`${config.PATH}user/login`, {
     email,
     password,
   });

@@ -3,8 +3,8 @@ import "./navbar.component.css";
 
 export function Navbar() {
   return (
-    <nav>
-      <ul>
+    <nav className="navbar">
+      <ul className="linksContainer">
         <li>
           <Link to="/">Home</Link>
         </li>

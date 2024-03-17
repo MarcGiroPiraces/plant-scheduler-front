@@ -8,6 +8,7 @@ export const addPlant = async (
   spotId: number
 ): Promise<number> => {
   const authorization = localStorage.getItem("token");
+  console.log(name, description, atHomeSince, spotId, authorization);
   const newPlantId = (await axios.post(
     `${config.PATH}plant`,
     {

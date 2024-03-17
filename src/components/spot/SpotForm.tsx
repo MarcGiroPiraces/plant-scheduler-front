@@ -1,5 +1,6 @@
 import { useSpotForm } from "../../hooks/transplanting/useSpotForm";
 import { SpotFormProps } from "../../interfaces/spot/SpotFormProps";
+import "./SpotForm.css";
 
 export function SpotForm({ actionOnSubmit }: SpotFormProps) {
   const { register, errors, onSubmit } = useSpotForm({
@@ -20,7 +21,9 @@ export function SpotForm({ actionOnSubmit }: SpotFormProps) {
         {errors.place && <span>Has d'introduir el lloc.</span>}
       </div>
 
-      <input type="submit" />
+      <div>
+        <input type="submit" />
+      </div>
     </form>
   );
 }
