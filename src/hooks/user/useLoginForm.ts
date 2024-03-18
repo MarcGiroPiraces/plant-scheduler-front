@@ -2,7 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { LoginFormProps } from "../../components/user/LoginForm";
+import { LoginFormProps } from "../../interfaces/user/LoginFormProps";
 import {
   LoginFormFields,
   loginFormFieldsSchema,
