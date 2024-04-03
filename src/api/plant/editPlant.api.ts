@@ -1,15 +1,16 @@
 import axios from "axios";
 import { config } from "../../config";
 
-export const addPlant = async (
+export const editPlant = async (
+  id: number,
   name: string,
   description: string,
-  atHomeSince: string,
+  atHomeSince: Date,
   spotId: number
 ): Promise<number> => {
   const authorization = localStorage.getItem("token");
-  const newPlantId = (await axios.post(
-    `${config.PATH}plant`,
+  const updatedPlantId = (await axios.patch(
+    `${config.PATH}plant/${id}`,
     {
       name,
       description,
@@ -21,5 +22,5 @@ export const addPlant = async (
     }
   )) as number;
 
-  return newPlantId;
+  return updatedPlantId;
 };

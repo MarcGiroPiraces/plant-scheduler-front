@@ -1,13 +1,13 @@
-import { addPlant } from "../../api/plant/addPlant.api";
+import { editPlant } from "../../api/plant/editPlant.api";
 import { PlantFormFields } from "../../interfaces/plant/formFields";
 
-export const useAddPlantPage = () => {
+export const useDetailPlantPage = () => {
   const onSubmit = async (plant: PlantFormFields): Promise<void> => {
-    console.log(plant);
-    await addPlant(
+    await editPlant(
+      plant.id,
       plant.name,
       plant.description,
-      plant.atHomeSince,
+      new Date(plant.atHomeSince),
       +plant.spotId
     );
   };

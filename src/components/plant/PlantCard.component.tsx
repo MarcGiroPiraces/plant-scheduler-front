@@ -1,3 +1,5 @@
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { getFormattedDateUE } from "../../helperFunctions/formattedDateUE";
 import { usePlantCard } from "../../hooks/plant/usePlantCard";
@@ -11,8 +13,6 @@ export function PlantCard({ plant }: { plant: Plant }) {
     nextWateringDate,
     isNextWateringDateThisWeek,
   } = usePlantCard(plant);
-  console.log(plant);
-  console.log(plant.spot.room);
 
   return (
     <li
@@ -35,7 +35,7 @@ export function PlantCard({ plant }: { plant: Plant }) {
           )}
           {
             <li>
-              Proper reg:{""}
+              Proper reg: {""}
               {averageWateringDate
                 ? getFormattedDateUE(nextWateringDate as Date)
                 : "No s'han registrat prous regs com per preveure el proper."}
@@ -46,6 +46,9 @@ export function PlantCard({ plant }: { plant: Plant }) {
           <Link to={`/watering/plant/${plant.id}/`}>Afegir reg</Link>
           <Link to={`/transplanting/plant/${plant.id}/`}>
             Afegir transplantament
+          </Link>
+          <Link to={`/plant/${plant.id}/`}>
+            <FontAwesomeIcon icon={faEdit} />
           </Link>
         </div>
       </div>

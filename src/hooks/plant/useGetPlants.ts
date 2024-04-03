@@ -5,8 +5,10 @@ import { usePlantsContext } from "./usePlantsContext";
 
 export const useGetPlants = () => {
   const { plantsData, setPlantsData } = usePlantsContext();
+  console.log(plantsData);
 
   useEffect(() => {
+    console.log("useGetPlants");
     getPlants(`plant`).then((data: Plant[]) => setPlantsData(data as Plant[]));
   }, [setPlantsData]);
 

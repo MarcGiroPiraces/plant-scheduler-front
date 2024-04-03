@@ -1,16 +1,25 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useMemo } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { PlantFormProps } from "../../interfaces/plant/PlantFormProps";
 import {
   PlantFormFields,
   plantFormFieldsSchema,
 } from "../../interfaces/plant/formFields";
 import { useGetSpots } from "../spot/useGetSpots";
+import { useGetPlantByIdFromPlantsList } from "./useGetPlantByIdFromPlantsList";
+import { useGetPlants } from "./useGetPlants";
 
-export const usePlantForm = ({ actionOnSubmit }: PlantFormProps) => {
+export const useEditPlantForm = ({ actionOnSubmit }: PlantFormProps) => {
   const navigate = useNavigate();
+  const { id } = useParams();
+  const plantsData = useGetPlants();
+  console.log(plantsData);
+  const plant = useGetPlantByIdFromPlantsList(
+    plantsData.plantsData,
+    Number(id)
+  );
   const { spotsData } = useGetSpots();
   const sortedSpotsData = useMemo(() => {
     return spotsData.sort((a, b) => a.room.localeCompare(b.room));
@@ -18,14 +27,16 @@ export const usePlantForm = ({ actionOnSubmit }: PlantFormProps) => {
 
   const defaultValues = useMemo(
     () => ({
-      name: "Tradescantia Zebrina",
-      description:
-        "Regar en mig sec i fertilitzar cada mes i mig en estiu i primavera",
-      atHomeSince: new Date().toISOString().split("T")[0],
-      userId: 1,
-      spotId: "1",
+      id: plant ? plant.id : 0,
+      name: plant ? plant.name : "",
+      description: plant ? plant.description : "",
+      atHomeSince: plant
+        ? new Date(plant.atHomeSince).toISOString().split("T")[0]
+        : "",
+      userId: plant ? plant.user.id : 1,
+      spotId: plant ? plant.spot.id.toString() : "1",
     }),
-    []
+    [plant]
   );
 
   const {
@@ -34,6 +45,7 @@ export const usePlantForm = ({ actionOnSubmit }: PlantFormProps) => {
     setError,
     reset,
     watch,
+    control,
     formState: { errors },
   } = useForm<PlantFormFields>({
     defaultValues: defaultValues,
@@ -42,11 +54,9 @@ export const usePlantForm = ({ actionOnSubmit }: PlantFormProps) => {
   useEffect(() => {
     reset(defaultValues);
   }, [defaultValues, reset]);
-
-  console.log("spotId", typeof watch("spotId"));
+  console.log(watch("spotId"));
 
   const onSubmit = handleSubmit(async (data) => {
-    console.log("SUBMITTING PLANT FORM");
     try {
       await actionOnSubmit(data);
       navigate(`/`);
@@ -60,7 +70,9 @@ export const usePlantForm = ({ actionOnSubmit }: PlantFormProps) => {
     register,
     onSubmit,
     setError,
+    control,
     errors,
     spotsData: sortedSpotsData,
+    watch,
   };
 };

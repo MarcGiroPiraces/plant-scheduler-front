@@ -13,7 +13,7 @@ export const useLoginForm = ({ actionOnSubmit }: LoginFormProps) => {
 
   const defaultValues = useMemo(
     () => ({
-      email: "loguimarc+3@gmail.com",
+      email: "loguimarc@gmail.com",
       password: "1234",
     }),
     []

@@ -1,9 +1,9 @@
-import { usePlantForm } from "../../hooks/plant/usePlantForm";
+import { useEditPlantForm } from "../../hooks/plant/useEditPlantForm";
 import { PlantFormProps } from "../../interfaces/plant/PlantFormProps";
 import "./PlantForm.css";
 
-export function PlantForm({ actionOnSubmit }: PlantFormProps) {
-  const { register, errors, onSubmit, spotsData } = usePlantForm({
+export function EditPlantForm({ actionOnSubmit }: PlantFormProps) {
+  const { register, errors, onSubmit, spotsData } = useEditPlantForm({
     actionOnSubmit,
   });
 
